@@ -9,14 +9,14 @@ inline auto compose() {
   };
 }
 
-template <typename T, typename ...Args>
-auto compose(T t, Args... args) {
+template<typename T, typename ...Args>
+auto compose(T f, Args... args) {
   return [=](const auto x) {
-    return compose(args...)(t(x));
+    return compose(args...)(f(x));
   };
 }
 
-template <typename T, typename ...Args>
+template<typename T, typename ...Args>
 auto lift(T f, Args ...args) {
   return [=](const auto x) {
     return f(args(x)...);

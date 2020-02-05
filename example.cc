@@ -10,11 +10,25 @@
 int
 main()
 {
+
   const uint32_t width = 400;
   const uint32_t height = 300;
   const Region rc = circle(Point(50., 100.), 10., true, false);
   const Image vs = vertical_stripe(100, Colors::Caribbean_blue, Colors::blue);
   const Blend cb = constant<Fraction>(.42);
+
+  const Region kula1 = circle(Point(70., -120.), 30., true, false);
+  const Region kula2 = circle(Point(-70., -120.), 30., true, false);
+  const Image kolon = constant(Colors::green.weighted_mean(Colors::Caribbean_blue, .45));
+  const Image kulen = cond(kula1, kolon, cond(kula2, kolon, constant(Colors::black)));
+  const Region dron = vertical_stripe(100, true, false);
+  const Image megazord = cond(dron, constant(Colors::green.weighted_mean(Colors::Caribbean_blue, .65)), kulen);
+
+  create_BMP("diks.bmp",
+             width,
+             height,
+             megazord);
+
 
   create_BMP("constant.bmp",
              width,
