@@ -18,8 +18,7 @@ main()
 
   create_BMP("constant.bmp",
              width,
-             height,  create_BMP("dark_vs.bmp",
-
+             height,
              constant(Colors::Caribbean_blue));
   create_BMP("rotate.bmp",
              width,

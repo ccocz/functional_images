@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <fstream>
 #include <string>
+#include <functional>
 
 namespace {
 // Należy unikać niestandardowych rozszerzeń kompilatora, ale poniższe są
